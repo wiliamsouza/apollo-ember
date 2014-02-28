@@ -1,0 +1,1 @@
+ApolloWeb.ApplicationAdapter = DS.FixtureAdapter;

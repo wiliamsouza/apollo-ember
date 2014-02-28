@@ -1,5 +1,12 @@
 ApolloWeb.Router.map(function () {
   
+  this.resource('devices', function(){
+    this.resource('device', { path: '/:device_id' }, function(){
+      this.route('edit');
+    });
+    this.route('create');
+  });
+  
   this.resource('organizations', function(){
     this.resource('organization', { path: '/:organization_id' }, function(){
       this.route('edit');

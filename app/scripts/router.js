@@ -21,6 +21,13 @@ ApolloWeb.Router.map(function () {
     this.route('create');
   });
   
+  this.resource('tests', function(){
+    this.resource('test', { path: '/:test_id' }, function(){
+      this.route('edit');
+    });
+    this.route('create');
+  });
+  
   this.resource('users', function(){
     this.resource('user', { path: '/:user_id' }, function(){
       this.route('edit');

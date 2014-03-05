@@ -2,9 +2,9 @@
 ApolloWeb.Device = DS.Model.extend({
     codename: DS.attr('string'),
 
-    permission: DS.attr('string'),
+    permission: DS.belongsTo('permissions'),
 
-    owner: DS.attr('string'),
+    owner: DS.belongsTo('user'),
 
     status: DS.attr('string'),
 
@@ -60,6 +60,20 @@ ApolloWeb.Device.reopen({
     });
   }.property()
 });
+
+ApolloWeb.Permissions = DS.Moldel.extend({
+    organization: DS.belongsTo('permission'),
+
+    team: DS.belongsTo('permission')
+})
+
+ApolloWeb.Permission = DS.Model.extend({
+    run: DS.attr('boolean', {defaultValue: false}),
+
+    results: DS.attr('boolean', {defaultValue: false}),
+
+    info: DS.attr('boolean', {defaultValue: false})
+})
 
 // delete below here if you do not want fixtures
 ApolloWeb.Device.FIXTURES = [

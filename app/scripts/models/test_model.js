@@ -2,9 +2,9 @@
 ApolloWeb.Test = DS.Model.extend({
     name: DS.attr('string'),
 
-    device: DS.attr('string'),
+    device: DS.belongsTo('device'),
 
-    packages: DS.attr('string')
+    packages: DS.belongsTo('package')
 });
 
 // probably should be mixed-in...

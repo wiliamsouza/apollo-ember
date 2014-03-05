@@ -2,7 +2,7 @@
 ApolloWeb.Package = DS.Model.extend({
     filename: DS.attr('string'),
 
-    metadata: DS.attr('string')
+    metadata: DS.belongsTo('metadata')
 });
 
 // probably should be mixed-in...
@@ -14,6 +14,16 @@ ApolloWeb.Package.reopen({
     });
   }.property()
 });
+
+ApolloWeb.Metadata = DS.Model.extend({
+    version: DS.attr('number'),
+
+    description: DS.attr('string'),
+
+    install: DS.attr('string'),
+
+    run: DS.attr('string')
+})
 
 // delete below here if you do not want fixtures
 ApolloWeb.Package.FIXTURES = [

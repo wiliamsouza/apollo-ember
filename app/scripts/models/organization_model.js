@@ -2,9 +2,9 @@
 ApolloWeb.Organization = DS.Model.extend({
     name: DS.attr('string'),
 
-    teams: DS.attr('string'),
+    teams: DS.hasMany('team'),
 
-    admins: DS.attr('string')
+    admins: DS.hasMany('user')
 });
 
 // probably should be mixed-in...
@@ -16,6 +16,12 @@ ApolloWeb.Organization.reopen({
     });
   }.property()
 });
+
+ApolloWeb.Team = DS.Model.extend({
+    name: DS.attr('string'),
+
+    users: DS.hasMany('user')
+})
 
 // delete below here if you do not want fixtures
 ApolloWeb.Organization.FIXTURES = [

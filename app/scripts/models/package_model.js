@@ -23,7 +23,7 @@ ApolloWeb.Metadata = DS.Model.extend({
     install: DS.attr('string'),
 
     run: DS.attr('string')
-})
+});
 
 // delete below here if you do not want fixtures
 ApolloWeb.Package.FIXTURES = [

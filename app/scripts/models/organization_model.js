@@ -21,7 +21,7 @@ ApolloWeb.Team = DS.Model.extend({
     name: DS.attr('string'),
 
     users: DS.hasMany('user')
-})
+});
 
 // delete below here if you do not want fixtures
 ApolloWeb.Organization.FIXTURES = [

@@ -1,0 +1,11 @@
+<form class="form-signin" role="form"{{action "new" on="submit"}}>
+  <h2 class="form-signin-heading">Please sign up</h2>
+  {{input type="text" class="form-control" placeholder="Full name" value=name required="required" autofocus="autofocus"}}
+  {{input type="text" class="form-control" placeholder="Your email" value=email required="required"}}
+  {{input type="password" class="form-control" placeholder="Password" value=password required="required"}}
+  {{input type="password" class="form-control" placeholder="Password again" value=pwd required="required"}}
+  {{input type="submit" class="btn btn-lg btn-primary btn-block signup-button" value="Sign up"}}
+  {{#if message}}
+    <p class="bg-danger">{{message}}</p>
+  {{/if}}
+</form>

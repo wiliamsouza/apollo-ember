@@ -32,7 +32,8 @@ ApolloWeb.Router.map(function () {
     this.resource('user', { path: '/:user_id' }, function(){
       this.route('edit');
     });
-    this.route('create');
+    this.route('new');
+    this.route('authenticate');
   });
   
 });

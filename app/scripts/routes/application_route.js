@@ -1,7 +1,20 @@
 ApolloWeb.ApplicationRoute = Ember.Route.extend({
-    // admittedly, this should be in IndexRoute and not in the
-    // top level ApplicationRoute; we're in transition... :-)
-    model: function () {
-        return ['red', 'yellow', 'blue'];
+  setupController: function(controller, model) {
+      controller.set('signedIn', !!localStorage.token);
+  },
+  actions: {
+    signout: function() {
+      delete localStorage.token;
+      this.controllerFor('application').set('signedIn', false);
+      this.transitionToRoute('users.authenticate');
     }
+  }
+});
+
+ApolloWeb.LoginRequiredRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+      if (!localStorage.token) {
+        this.transitionTo('users.authenticate');
+    }
+  }
 });
